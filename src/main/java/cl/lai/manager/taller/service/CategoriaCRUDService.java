@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import cl.lai.manager.taller.dao.CategoriaDao;
+import cl.lai.manager.taller.repository.CategoriaRepository;
 import cl.lai.manager.taller.vo.Categoria; 
 
 @Service
@@ -11,8 +12,7 @@ public class CategoriaCRUDService   {
 	 
 	@Autowired
 	private CategoriaDao categoriaDao;
- 
-
+	
 	public int create(  String codigo,  String descripcion) {
 		return this.categoriaDao.create(codigo, descripcion );
 	}
