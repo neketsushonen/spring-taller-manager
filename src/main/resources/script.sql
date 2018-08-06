@@ -26,3 +26,11 @@ CREATE  TABLE IF NOT EXISTS `taller`.`sps_vendedor` (
   PRIMARY KEY (`sps_id`) )
 ENGINE = InnoDB;
  
+DROP TABLE IF EXISTS `taller`.`sps_banco` ;
+
+CREATE  TABLE IF NOT EXISTS `taller`.`sps_banco` (
+  `sps_id` INT NOT NULL AUTO_INCREMENT ,
+  `sps_bancocod` VARCHAR(45) NULL ,
+  `sps_banconombre` VARCHAR(205) NULL ,
+  PRIMARY KEY (`sps_id`) )
+ENGINE = InnoDB;
