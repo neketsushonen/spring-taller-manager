@@ -16,7 +16,7 @@
 		ALTER DATABASE hijoin CHARACTER SET utf8 COLLATE utf8_general_ci; commit; -->
 
 	<context:annotation-config />
-	<context:component-scan base-package="cl.lai.manager.taller.dao" />
+	<context:component-scan base-package="cl.lai.manager.taller.dao, cl.lai.manager.taller.service" />
 
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
