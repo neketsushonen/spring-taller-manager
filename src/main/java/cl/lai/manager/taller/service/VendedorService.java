@@ -1,16 +1,5 @@
 package cl.lai.manager.taller.service;
 
-import java.io.ByteArrayInputStream;
-import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.dao.DataAccessException;
 
 import cl.lai.manager.taller.dao.VendedorDao;
 import cl.lai.manager.taller.vo.Vendedor; 

@@ -34,3 +34,12 @@ CREATE  TABLE IF NOT EXISTS `taller`.`sps_banco` (
   `sps_banconombre` VARCHAR(205) NULL ,
   PRIMARY KEY (`sps_id`) )
 ENGINE = InnoDB;
+ 
+DROP TABLE IF EXISTS `taller`.`sps_categoria` ;
+
+CREATE  TABLE IF NOT EXISTS `taller`.`sps_categoria` (
+  `sps_id` INT NOT NULL AUTO_INCREMENT ,
+  `sps_codigo` VARCHAR(45) NULL ,
+  `sps_descripcion` VARCHAR(200) NULL ,
+  PRIMARY KEY (`sps_id`) )
+ENGINE = InnoDB;
