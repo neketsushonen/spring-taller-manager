@@ -3,8 +3,149 @@
 <head>
     <title>Taller Spring: Serving Web Content</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-</head>
-<body>
-    <p>Dile hora a <a href="taller">click aqui</a></p>
+    <link rel="stylesheet" type="text/css" href="js/examples/ux/css/Portal.css" />
+      	<link rel="stylesheet" type="text/css" href="js/examples/ux/css/RowEditor.css" />
+     	<link rel="stylesheet" type="text/css" href="js/resources/css/ext-all.css" /> 	
+    	<link rel="stylesheet" type="text/css" href="js/examples/shared/examples.css" />	
+         <link href="assets/prettify/prettify.css" rel="stylesheet" type="text/css" />
+        <link rel="stylesheet" type="text/css" href="js/resources/css/ext-all.css" />
+    	
+		<script type="text/javascript" src="js/adapter/ext/ext-base.js"></script>
+		<script type="text/javascript" src="js/ext-all.js"></script>
+ 	    
+	    <script type="text/javascript" src="js/examples/shared/examples.js"></script>
+	    <script type="text/javascript" src="js/examples/portal/sample-grid.js"></script>
+	    <script type="text/javascript" src="js/examples/ux/DataViewTransition.js"></script>
+  	    <script type="text/javascript" src="js/examples/ux/RowEditor.js"></script>
+    </head>
+<body id="taller">
+    
 </body>
+<script>
+function adm_categoria(){
+	var success =function(response, request) {
+       	var obj = Ext.decode(response.responseText);
+       	switch(obj.estado){
+       		case 1: storeCategoria.reload();
+	        		Ext.Msg.show({cls:'msg_floating',title: '',msg: obj.resultado.mensaje,buttons: Ext.Msg.YES,icon: Ext.Msg.INFO,width:400});
+       				break;
+       	}
+	};
+	var failure = function (response,request){
+			var obj = Ext.decode(response.responseText);
+			switch(obj.estado){
+				case 2: 
+		    		Ext.Msg.show({cls:'msg_floating',
+		    			title: '',
+		    			msg: obj.resultado.mensaje,
+		    			buttons: Ext.Msg.YES,
+		    			icon: Ext.Msg.ERROR,
+		    			width:400
+		    		});
+		    		break;
+				case 3: 
+		    		Ext.Msg.show({cls:'msg_floating',
+		    			title: "Contactar a",
+		    			msg: obj.resultado.mensaje,
+		    			buttons: Ext.Msg.YES,
+		    			icon: Ext.Msg.ERROR,
+		    			width:400
+		    		});
+		    		break;
+			}
+		};
+		var ingresar=function(){
+    		var codigo = encodeURIComponent(Ext.getCmp("categoria-codigo").getValue());
+       		var descripcion = encodeURIComponent(Ext.getCmp("categoria-descripcion").getValue());
+       		Ext.Ajax.request({
+                   url: 'categoria/insert.htm',method: 'POST',success: success, failure: failure,
+                   timeout: 0,params: {codigo:codigo,descripcion:descripcion}
+            });
+        };
+       
+       var actualizar=function(){
+       		var id = Ext.get("categoria-id").getValue();
+       		var codigo = encodeURIComponent(Ext.getCmp("categoria-codigo").getValue());
+       		var descripcion = encodeURIComponent(Ext.getCmp("categoria-descripcion").getValue());
+       		Ext.Ajax.request({
+                url: 'categoria/update.htm',method: 'POST',
+                success: success, failure: failure,timeout: 0,params: {id:id,codigo:codigo,descripcion:descripcion}
+            });
+       }
+       
+       var eliminar=function(){
+        	var id = Ext.getCmp("categoria-id").getValue();
+       		Ext.Ajax.request({url: 'categoria/delete.htm',method: 'POST',success: success, failure: failure,timeout: 0, params: {id:id}});
+        }
+       
+        var storeCategoria = new Ext.data.JsonStore({
+    	     idProperty: 'codigo',remoteSort: false,
+    	     autoLoad:true,
+    	     fields: [{name: 'id'},{name: 'codigo'},{name: 'descripcion'} ], 
+    	     proxy: new Ext.data.HttpProxy({url:'categoria/list.htm'})
+    	 });
+		 
+	    
+ 	    
+	    var colModel = new Ext.grid.ColumnModel([
+	        {header: "Codigo", width: 300, sortable: true, locked:false, dataIndex: 'codigo'},
+	        {id:'categoria-expand-column',header: "Descripción", width: 160, sortable: true,sortable: true, locked:false, dataIndex: 'descripcion' }
+	    ]);
+	
+	    var bd = Ext.getBody();
+	    var gridForm = new Ext.FormPanel({
+	        id: 'categoria-form',
+	        renderTo:bd,
+	        frame: true,
+	        labelAlign: 'left',
+	        title:"Categoria",
+	        bodyStyle:'padding:5px',
+	        width: 930,
+	        autoHeight:true,
+	        layout: 'column',   
+	        items: [{
+	            columnWidth: 0.60,
+	            layout: 'fit',
+	            items: {id:'categoria-grid',xtype: 'grid',ds: storeCategoria,cm: colModel,
+	                sm: new Ext.grid.RowSelectionModel({
+	                    singleSelect: true,
+	                    listeners: {
+	                        rowselect: function(sm, row, rec) {
+	                            Ext.getCmp("categoria-form").getForm().loadRecord(rec);
+	                        }
+	                    }
+	                }),
+	                autoExpandColumn: 'categoria-expand-column',
+	               autoHeight:true,
+	                border: true,
+	                listeners: {
+	                    viewready: function(g) {
+	                        //g.getSelectionModel().selectRow(0);
+	                    } 
+	                }
+	            }
+	        },{
+	            columnWidth:0.4,xtype:'fieldset',labelWidth:120,title:"Categoria",defaults:{width:140,border:false},defaultType:'textfield',
+	            autoHeight: true,bodyStyle: Ext.isIE ? 'padding:0 0 5px 15px;' : 'padding:10px 15px;',border: false,
+	            style: { "margin-left": "10px","margin-right": Ext.isIE6 ? (Ext.isStrict ? "-10px" : "-13px") : "0" },
+	            items: [
+	            	{hidden:true,name: 'id',id:'categoria-id'},
+	            	{ allowBlank:false,fieldLabel:"Codigo",name: 'codigo',id:'categoria-codigo',style:{"text-transform":"uppercase"}},
+	            	{allowBlank:false,fieldLabel: "Descripcion",name: 'descripcion',id:'categoria-descripcion',style:{"text-transform":"uppercase"}}],
+	            buttons:[	 
+					{text:"Limpiar",handler:function(){
+						Ext.getCmp("categoria-codigo").setValue("");
+						Ext.getCmp("categoria-descripcion").setValue("");
+						Ext.getCmp("categoria-grid").getSelectionModel().clearSelections();
+					}},
+					{text:"Agregar",handler:ingresar,id:"categoria-ingresar-button",disabled:false},
+	            	{text:"Actualizar",handler:actualizar,id:"categoria-actualizar-button",disabled:false},
+	            	{text:"Eliminar",handler:eliminar,id:"categoria-eliminar-button",disabled:false}
+	            ]
+	        }]
+	        });
+	        return gridForm;
+	}
+adm_categoria();
+</script>
 </html>

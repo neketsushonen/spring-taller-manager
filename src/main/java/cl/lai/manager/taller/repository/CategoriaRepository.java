@@ -14,4 +14,7 @@ import cl.lai.manager.taller.vo.CategoriaEntity;
 @Repository
 public interface CategoriaRepository  extends CrudRepository<CategoriaEntity,Long>{
 	List<CategoriaEntity> findByCodigo(String codigo);
+	
+	@Override
+    List<CategoriaEntity> findAll();
 }
