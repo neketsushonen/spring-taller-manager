@@ -13,10 +13,10 @@ import org.springframework.context.ApplicationContext;
  *
  */
 @SpringBootApplication(exclude = { DataSourceTransactionManagerAutoConfiguration.class, DataSourceAutoConfiguration.class })
-public class App_tutorial_09 {
+public class App_tutorial_08 {
     public static void main( String[] args ){
     	//leer el archivo del contexto
-		ApplicationContext applicationContext = SpringApplication.run(App_tutorial_09.class, args);
+		ApplicationContext applicationContext = SpringApplication.run(App_tutorial_08.class, args);
     	//Abrir el browser e introduzca el siguiente link: http://localhost:8080/taller?name=springMVC
       
     }
