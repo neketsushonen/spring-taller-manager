@@ -12,28 +12,17 @@
         http://www.springframework.org/schema/context/spring-context.xsd
         http://www.springframework.org/schema/data/jpa
         http://www.springframework.org/schema/data/jpa/spring-jpa.xsd">
-    
-    <context:property-placeholder location="classpath:config.properties"/>     
-    	 
- 	<context:annotation-config />
- 	
-	<context:component-scan base-package="cl.lai.manager.taller" />
-	
-	<jpa:repositories base-package="cl.lai.manager.taller.repository" />
-	
 
-	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
-		<property name="dataSource" ref="dataSource" />
-	</bean>
-
- 
+	 <context:annotation-config />
+	 <context:component-scan base-package="cl.lai.manager.taller" />
+	 
 	<bean id="vendedorDao" class="cl.lai.manager.taller.dao.VendedorDao">
-		<property name="template" ref="jdbcTemplate" />
+		<property name="template" ref="jdbcTemplateConfig" />
 	</bean>
 	
 	
 	<bean id="bancoDao" class="cl.lai.manager.taller.dao.BancoDao">
-		<property name="template" ref="jdbcTemplate" />
+		<property name="template" ref="jdbcTemplateConfig" />
 	</bean>
 	 
 
@@ -49,21 +38,5 @@
 	<bean id="categoriaService" class="cl.lai.manager.taller.service.CategoriaService">
 	</bean>
 
-	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
-	    <property name="entityManagerFactory" ref="entityManagerFactory" />
-	  </bean>
-	
-	  <bean id="entityManagerFactory" 
-	        class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
-	    <property name="dataSource" ref="dataSource" />
-	    <property name="packagesToScan" value="cl.lai.manager.taller.vo" />
-	    <property name="jpaVendorAdapter">
-	      <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
-	        <property name="database" value="MYSQL" />
-	        <property name="generateDdl" value="true" />
-	      </bean>
-	    </property>
-	  </bean>
-	<tx:annotation-driven transaction-manager="transactionManager" /> 		
 	 
 </beans>
