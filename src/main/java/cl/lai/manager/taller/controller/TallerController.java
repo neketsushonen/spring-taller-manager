@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import cl.lai.manager.taller.excepcion.TallerExcepcion;
 import cl.lai.manager.taller.repository.CategoriaRepository;
 import cl.lai.manager.taller.vo.CategoriaEntity;
 import cl.lai.manager.taller.vo.ResultadoHTML;
@@ -36,6 +37,8 @@ public class TallerController {
     		@RequestParam(name="codigo", required=true ) String codigo,
     		@RequestParam(name="descripcion", required=true ) String descripcion
     	) {
+		
+		if(!this.service.findByCodigo(codigo).isEmpty()) throw new TallerExcepcion("Codigo ya se encuentra repetido");
 		
 		CategoriaEntity c = new CategoriaEntity();
     	c.setCodigo(codigo);
