@@ -22,7 +22,7 @@ public class App_tutorial_04 {
     	CategoriaCRUDService service = applicationContext.getBean(CategoriaCRUDService.class);
     	
     	//crear la categoria
-    	int id = service.create("LIBRERIA","Lapiz / Papel");
+    	Long id = service.create("LIBRERIA","Lapiz / Papel");
     	System.out.println(service.get(id) );
     	
     	//actualizar la categoria
@@ -30,6 +30,6 @@ public class App_tutorial_04 {
     	System.out.println(service.get(id) );
     	
     	//eliminar la categoria
-    	service.delete(id);
+    	service.delete(id.intValue());
     }
 }
