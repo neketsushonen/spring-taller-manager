@@ -7,9 +7,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.hamcrest.Matcher;
+
 @Entity 
 @Table(name="sps_categoria")
-public class CategoriaEntity  {
+public class CategoriaEntity{
 	
 	@Id  @GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name = "sps_id")

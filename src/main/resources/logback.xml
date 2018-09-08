@@ -8,6 +8,10 @@
 		</layout>
 	</appender>
 
+	<logger name="cl.lai.manager.taller.test" level="error" additivity="false">
+		<appender-ref ref="STDOUT" />
+	</logger>
+	
 	<logger name="cl.lai.manager.taller" level="error" additivity="false">
 		<appender-ref ref="STDOUT" />
 	</logger>
