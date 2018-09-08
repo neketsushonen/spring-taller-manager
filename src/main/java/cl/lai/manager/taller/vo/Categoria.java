@@ -2,6 +2,22 @@ package cl.lai.manager.taller.vo;
 
 public class Categoria extends VO{
 	
+	public Categoria() {
+		
+	}
+	
+	public Categoria(Long id, String codigo, String descripcion) {
+		this.codigo = codigo;
+		this.descripcion = descripcion;
+		super.setId(id.intValue());
+	}
+	
+	public Categoria(Integer id, String codigo, String descripcion) {
+		this.codigo = codigo;
+		this.descripcion = descripcion;
+		super.setId(id);
+	}
+	
 	@Override
 	public String toString() {
 		return "Categoria [codigo=" + codigo + ", descripcion=" + descripcion + "]";
