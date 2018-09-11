@@ -10,7 +10,7 @@ import cl.lai.manager.taller.service.VendedorService;
  * @author chunhaulai
  *
  */
-public class App_condeclaracion {
+public class App_tutorial_01 {
     public static void main( String[] args ){
     	//leer el archivo del contexto
     	ApplicationContext applicationContext = new ClassPathXmlApplicationContext("springApplicationContext.xml");
