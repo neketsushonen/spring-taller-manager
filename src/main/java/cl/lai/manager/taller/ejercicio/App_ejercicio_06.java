@@ -24,16 +24,16 @@ public class App_ejercicio_06 {
 			database2.password=
 			
     	 */
-    	//2. Implementar IoC de esas proiedades en cl.lai.manager.taller.config.ConfigProperty (con nuevos atributos)
+    	//2. Crear la clase cl.lai.manager.taller.config.ConfigProperty2 e Implementar IoC de esas propiedades en ella (con nuevos atributos)
     	/*
     	 
-    	 	en cl.lai.manager.taller.config.ConfigProperty, agregar la inyeccion de los atributos:
+    	 	en cl.lai.manager.taller.config.ConfigProperty2, agregar la inyeccion de los atributos:
 			driverClassName2, url2, username2, password2
 		 
     	 */
     	//3. Implementar la instanciacion del bean dataSource2 con las nuevas propiedades
     	
-    	//4. Implementar  la instanciacion de "jdbcTemplate" con nuevo dataSource2 en cl.lai.manager.taller.config.ConfigProperty (y borrarlo desde springApplitactionContext)
+    	//4. Implementar  la instanciacion de "jdbcTemplate" con nuevo dataSource2 en cl.lai.manager.taller.config.ConfigProperty2 (y borrarlo desde springApplitactionContext)
     	
     }
 }
