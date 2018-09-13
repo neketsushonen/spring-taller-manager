@@ -26,12 +26,12 @@ public class TallerController {
 	@Autowired
 	CategoriaRepository service ;
 	
-	@GetMapping("/categoria/list.htm")
+	@GetMapping("/categoria")
     public @ResponseBody List<CategoriaEntity> listCategoria ( Model model) {
         return this.service.findAll();
     }
 	
-	@PostMapping("/categoria/insert.htm")
+	@PostMapping("/categoria")
     public @ResponseBody ResultadoHTML insert (
     		@RequestParam(name="codigo", required=true ) String codigo,
     		@RequestParam(name="descripcion", required=true ) String descripcion
