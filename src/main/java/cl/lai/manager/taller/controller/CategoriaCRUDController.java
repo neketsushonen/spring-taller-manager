@@ -20,12 +20,12 @@ public class CategoriaCRUDController {
 	@Autowired
 	CategoriaCRUDService categoriaService ;
 	
-	@GetMapping("/categoria/{id}")
+	@GetMapping("/CATEGORIA/{id}")
     public @ResponseBody Categoria get (@PathVariable long id,   Model model) {		
 		return this.categoriaService.get(id);
     }
 	
-	@PostMapping("/categoria")
+	@PostMapping("/CATEGORIA")
     public @ResponseBody ResultadoHTML insert (
     		@RequestParam(name="codigo", required=true ) String codigo,
     		@RequestParam(name="descripcion", required=true ) String descripcion
