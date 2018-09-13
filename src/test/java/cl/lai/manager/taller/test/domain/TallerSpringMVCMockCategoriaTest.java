@@ -49,13 +49,13 @@ public class TallerSpringMVCMockCategoriaTest {
     	when(service.create("Taller 4","Taller 4")).thenReturn(new Long(4));
 
 
-        this.mockMvc.perform(get("/categoria/1")).andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("Taller")));
-        this.mockMvc.perform(get("/categoria/2")).andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("Taller 2")));
-        this.mockMvc.perform(get("/categoria/3")).andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("Taller 3")));
-        this.mockMvc.perform(post("/categoria").param("codigo", "Taller 4").param("descripcion", "Taller 4")).andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("Categoria registrada")));
+        this.mockMvc.perform(get("/CATEGORIA/1")).andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("Taller")));
+        this.mockMvc.perform(get("/CATEGORIA/2")).andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("Taller 2")));
+        this.mockMvc.perform(get("/CATEGORIA/3")).andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("Taller 3")));
+        this.mockMvc.perform(post("/CATEGORIA").param("codigo", "Taller 4").param("descripcion", "Taller 4")).andDo(print()).andExpect(status().isOk()).andExpect(content().string(containsString("Categoria registrada")));
 
-        this.mockMvc.perform(post("/categoria").param("codigo", "Taller 4").param("descripcion", "Taller 4")).andDo(print()).andExpect(status().isOk()).andExpect(content().json("{\"estado\":1,\"mensaje\":\"Categoria registrada\"}"));
-        this.mockMvc.perform(post("/categoria").param("codigo", "Taller 4").param("descripcion", "Taller 4")).andDo(print()).andExpect(status().isOk()).andExpect(content().json("{'estado':1,'mensaje':'Categoria registrada'}"));
-        this.mockMvc.perform(post("/categoria").param("codigo", "Taller 4").param("descripcion", "Taller 4")).andDo(print()).andExpect(status().isOk()).andExpect(content().json("{'mensaje':'Categoria registrada','estado':1}"));
+        this.mockMvc.perform(post("/CATEGORIA").param("codigo", "Taller 4").param("descripcion", "Taller 4")).andDo(print()).andExpect(status().isOk()).andExpect(content().json("{\"estado\":1,\"mensaje\":\"Categoria registrada\"}"));
+        this.mockMvc.perform(post("/CATEGORIA").param("codigo", "Taller 4").param("descripcion", "Taller 4")).andDo(print()).andExpect(status().isOk()).andExpect(content().json("{'estado':1,'mensaje':'Categoria registrada'}"));
+        this.mockMvc.perform(post("/CATEGORIA").param("codigo", "Taller 4").param("descripcion", "Taller 4")).andDo(print()).andExpect(status().isOk()).andExpect(content().json("{'mensaje':'Categoria registrada','estado':1}"));
     }
 }
