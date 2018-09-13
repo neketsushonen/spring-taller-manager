@@ -58,7 +58,7 @@ function adm_categoria(){
     		var codigo = encodeURIComponent(Ext.getCmp("categoria-codigo").getValue());
        		var descripcion = encodeURIComponent(Ext.getCmp("categoria-descripcion").getValue());
        		Ext.Ajax.request({
-                   url: 'categoria/insert.htm',method: 'POST',success: success, failure: failure,
+                   url: 'categoria',method: 'POST',success: success, failure: failure,
                    timeout: 0,params: {codigo:codigo,descripcion:descripcion}
             });
         };
@@ -68,21 +68,21 @@ function adm_categoria(){
        		var codigo = encodeURIComponent(Ext.getCmp("categoria-codigo").getValue());
        		var descripcion = encodeURIComponent(Ext.getCmp("categoria-descripcion").getValue());
        		Ext.Ajax.request({
-                url: 'categoria/update.htm',method: 'POST',
+                url: 'categoria',method: 'PUT',
                 success: success, failure: failure,timeout: 0,params: {id:id,codigo:codigo,descripcion:descripcion}
             });
        }
        
        var eliminar=function(){
         	var id = Ext.getCmp("categoria-id").getValue();
-       		Ext.Ajax.request({url: 'categoria/delete.htm',method: 'POST',success: success, failure: failure,timeout: 0, params: {id:id}});
+       		Ext.Ajax.request({url: 'categoria',method: 'DELETE',success: success, failure: failure,timeout: 0, params: {id:id}});
         }
        
         var storeCategoria = new Ext.data.JsonStore({
     	     idProperty: 'codigo',remoteSort: false,
     	     autoLoad:true,
     	     fields: [{name: 'id'},{name: 'codigo'},{name: 'descripcion'} ], 
-    	     proxy: new Ext.data.HttpProxy({url:'categoria/list.htm'})
+    	     proxy: new Ext.data.HttpProxy({url:'categoria'})
     	 });
 		 
 	    
