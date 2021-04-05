@@ -18,22 +18,18 @@ public class VendedorService implements IVendedorService {
 		this.vendedorDao = vendedorDao;
 	}
 
-	@Override
 	public int create(String nombre, String direccion, String rut, String nick, String telefono, String password) {
 		return this.vendedorDao.create(nombre, direccion, rut, nick, telefono, password);
 	}
 
-	@Override
 	public void update(int id, String nombre, String direccion, String rut, String nick, String telefono,String password) {
 		 this.vendedorDao.update(id, nombre, direccion, rut, nick, telefono, password);	
 	}
 
-	@Override
 	public void delete(int codigo) {
 		this.vendedorDao.delete(codigo);
 	}
 
-	@Override
 	public Vendedor get(int id) {
 		return this.vendedorDao.get(id);
 	}
