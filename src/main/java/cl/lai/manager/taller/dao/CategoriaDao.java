@@ -26,7 +26,6 @@ public class CategoriaDao {
 		KeyHolder keyHolder = new GeneratedKeyHolder();
 		template.update(
 		    new PreparedStatementCreator() {
-		       @Override
 				public PreparedStatement createPreparedStatement(Connection connection)throws SQLException {
 					PreparedStatement ps =  connection.prepareStatement(SQL, new String[] {"sps_id"});
 					ps.setString(1, codigo);
