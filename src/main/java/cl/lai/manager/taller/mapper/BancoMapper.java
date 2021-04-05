@@ -10,7 +10,6 @@ import cl.lai.manager.taller.vo.Banco;
  
 public class BancoMapper implements RowMapper<Banco> {
 
-	@Override
 	public Banco mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Banco s = new Banco();
 		s.setId(rs.getInt("sps_id"));
