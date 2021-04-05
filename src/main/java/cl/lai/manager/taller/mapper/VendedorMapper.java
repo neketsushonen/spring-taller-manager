@@ -9,7 +9,6 @@ import cl.lai.manager.taller.vo.Vendedor;
 
 public class VendedorMapper implements RowMapper<Vendedor> {
 
-	@Override
 	public Vendedor mapRow(ResultSet rs, int rowNum) throws SQLException {
 		Vendedor s = new Vendedor();
 		s.setId(rs.getInt("sps_id"));
