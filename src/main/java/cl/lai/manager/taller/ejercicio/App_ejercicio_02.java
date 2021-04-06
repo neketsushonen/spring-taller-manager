@@ -17,8 +17,8 @@ public class App_ejercicio_02 {
     	
     	//1. Implementar la clase  cl.lai.manager.taller.service.NuevoBancoService
     	//2. Declarar la clase NuevoBancoService en springApplicationContext.xml
-    	//3. Incorporar directamente el objeto jdbcTemplate mediante Autowired y Qualifier
-    	//4. Implementar el metodo crear banco y eliminar el banco
-    	//5. Ejecutar ambos metodos aqui
+    	//3. Incorporar directamente el objeto jdbcTemplate mediante Autowired y Qualifier en la clase NuevoBancoService
+    	//4. Implementar el metodo crear banco y eliminar el banco  en la clase NuevoBancoService invocando el objeto jdbcTemplate
+    	//5. Ejecutar ambos metodos aqui con la clase NuevoBancoService
     }
 }
