@@ -21,6 +21,6 @@ public class App_ejercicio_05 {
     	//4. Implementar la actualizacion del objeto BancoEntity
     	//5. Implementar la consulta del objeto BancoEntity por el codigo del banco
     	//6. Implementar la eliminacion del objeto BancoEntity
-    	//  Ejecutar ambos metodos aqui
+    	//Ejecutar todos los metodos aqui
     }
 }
