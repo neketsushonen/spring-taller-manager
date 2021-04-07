@@ -13,5 +13,6 @@ public class App_ejercicio_10 {
     	//4. Implemenar MiTallerExceptionHandler que intercepta la excepcion MiTallerException y retorna resultado
     	//5. Instanciar la aplicacion App_ejercicio_10 con Spring boot
     	//6. Abrir el postman e introduzca el siguiente link con el método http://localhost:8080/mitaller/categoria?codigo=
+		//7. Investigarel uso de la clase utilitaria StringUtils del spring
     }
 }
