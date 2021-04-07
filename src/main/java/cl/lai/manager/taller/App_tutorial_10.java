@@ -17,7 +17,7 @@ public class App_tutorial_10 {
     public static void main( String[] args ){
     	//leer el archivo del contexto
 		ApplicationContext applicationContext = SpringApplication.run(App_tutorial_10.class, args);
-    	//Abrir el postman e introduzca el siguiente link: http://localhost:8080/categoria
+    	//Abrir el postman e introduzca el siguiente link con metodo POST: http://localhost:8080/categoria?codigo= 
 
       
     }
