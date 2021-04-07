@@ -13,6 +13,6 @@ public class App_ejercicio_07 {
     	//4. Definir @PropertySource para cl.lai.manager.taller.config.ConfigProperty para el archivo config.properties
     	//5. Instanciar la aplicacion App_ejercicio_07 con Spring boot
 		//6. Obtener la clase cl.lai.manager.taller.service.CategoriaService como categoriaService desde applicationContext
-		//7. Imprimir el objeto categoriaService
+		//7. Imprimir el objeto categoriaService con System.out.println()
     }
 }
