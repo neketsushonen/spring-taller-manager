@@ -14,5 +14,6 @@ public class App_ejercicio_08 {
     	//5. Retornar a la pagina "mitaller" desde el método del Controller
     	//6. Instanciar la aplicacion App_ejercicio_08 con Spring boot
     	//7. Abrir el browser e introduzca http://localhost:8080/mitaller?param1=mi&param2=taller
+		//8. Investigar por qué no se pudo visualizar el resultado implementado, intente solucionarlo (HINT: tiene que ver con  uso de scanBasePackages para la anotacion @SpringBootApplication)
     }
 }
