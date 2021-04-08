@@ -26,15 +26,17 @@ public class TallerSpringMockCategoriaTest {
 	 
 	@Before
 	public void setUp() { 
+		
+	}
+	
+	@Test
+	public void when_insertarExitosamente() {	 
 		Mockito.when(service.create("Taller", "Taller")).thenReturn(new Long(1));	
 		Categoria taller = new Categoria();
 		taller.setCodigo("Taller");
 		taller.setDescripcion("Taller");
 		Mockito.when(service.get(new Long(1))).thenReturn(taller);
-	}
-	
-	@Test
-	public void when_insertarExitosamente() {	 
+
 	    assertThat(service.create("Taller", "Taller")).isEqualTo(new Long(1));
 	    assertThat(service.get(new Long(1)).getCodigo()).isEqualTo("Taller");
 	}
