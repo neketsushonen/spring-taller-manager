@@ -13,6 +13,12 @@ public class CategoriaCRUDService   {
 	 
 	@Autowired
 	private CategoriaRepository repository;
+
+	public Integer sumar(Integer num1, Integer num2){
+		Integer resultado = num1 + num2;
+		return resultado;
+		
+	}
 	
 	public Long create(  String codigo,  String descripcion) {
 		CategoriaEntity c = new CategoriaEntity();
@@ -20,6 +26,7 @@ public class CategoriaCRUDService   {
     	c.setDescripcion(descripcion);
     	c = repository.save(c);    	
 		return c.getId() ;
+		
 	}
 	
 	public void update(Long id, String codigo,String descripcion){
@@ -36,11 +43,13 @@ public class CategoriaCRUDService   {
 	}
 
  	public Categoria get(Long id) {
+		 /*
  		CategoriaEntity c = this.repository.findById( id).get();
  		Categoria categoria = new Categoria();
  		categoria.setId(c.getId().intValue());
  		categoria.setCodigo(c.getCodigo());
  		categoria.setDescripcion(c.getDescripcion());
- 		return categoria;
+ 		return categoria;*/
+		return null;
 	}
 }
