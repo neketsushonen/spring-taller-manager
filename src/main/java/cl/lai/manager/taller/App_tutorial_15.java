@@ -19,7 +19,12 @@ public class App_tutorial_15 {
     	//leer el archivo del contexto
 		ApplicationContext applicationContext = SpringApplication.run(App_tutorial_15.class, args);
 		 
-     	//Abrir el browser e introduzca el siguiente link: http://localhost:2100
+		//1) Entrar en el proyecto spring-taller-microservicio-eureka e iniciar la aplicacion AppEurekaserver
+        //2) Entrar en el proyecto spring-taller-microservicio-consumer e iniciar la aplicacion App_tutorial_15
+		//3) Inicializar la aplicación actual App_tutorial_15.
+     	//4) Abrir el browser e introduzca el siguiente link: http://localhost:8260
+     	//5) Abrir el browser e introduzca el siguiente link: http://localhost:8080/categoria
+
       
     }
 }

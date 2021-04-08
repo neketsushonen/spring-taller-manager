@@ -79,7 +79,7 @@
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-dependencies</artifactId>
-				<version>Finchley.RC1</version>
+				<version>Hoxton.SR5</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
@@ -87,14 +87,7 @@
 	</dependencyManagement>
 	
 	<repositories>
-		<repository>
-			<id>spring-milestones</id>
-			<name>Spring Milestones</name>
-			<url>https://repo.spring.io/libs-milestone</url>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
+	 
 	</repositories>
 	
 	<build>
